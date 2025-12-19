@@ -69,7 +69,7 @@ npm run dev
 This starts the Motia runtime and opens the Workbench at:
 http://localhost:3000
 
-Demo
+## Demo
 
 The project is demonstrated via a short video walkthrough showing:
 
@@ -79,11 +79,11 @@ API execution using Postman or curl
 
 Event emission and workflow logs in Motia
 
-Hackathon Context
+## Hackathon Context
 
 This project was built from scratch during the hackathon and is not a repackaged or modified existing project.
 All workflows, logic, and design were created during the event.
 
-Author
+## Author
 
 Payal Kumari
