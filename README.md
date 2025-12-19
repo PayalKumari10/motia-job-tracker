@@ -1,92 +1,89 @@
-# motia-job-tracker
+# Job Application Tracker – Backend Reloaded Hackathon
 
-A Motia tutorial project in TypeScript.
+A backend-driven Job Application Tracker built using Motia during the Backend Reloaded Hackathon.  
+This project demonstrates how event-driven workflows can automate job application tracking and follow-up scheduling.
 
-## What is Motia?
+## Problem Statement
 
-Motia is an open-source, unified backend framework that eliminates runtime fragmentation by bringing **APIs, background jobs, queueing, streaming, state, workflows, AI agents, observability, scaling, and deployment** into one unified system using a single core primitive, the **Step**.
+Managing multiple job applications manually is inefficient.  
+Tracking application status, remembering follow-up dates, and maintaining consistency quickly becomes error-prone.
 
-## Quick Start
+This project solves that by using an automated backend workflow that:
+
+- Creates job applications via an API
+- Emits events on creation
+- Automatically schedules follow-up workflows
+
+## Solution Overview
+
+Using Motia as the unified backend runtime, this project models the entire system using **Steps**:
+
+- API Steps for creating applications
+- Event Steps for triggering workflows
+- Background logic for follow-up scheduling
+
+All workflows are observable and debuggable via the Motia Workbench.
+
+## Tech Stack
+
+- Motia (Unified backend framework)
+- TypeScript
+- Node.js
+
+## Core Workflow
+
+1. A POST API receives job application details.
+2. The API emits an `application.created` event.
+3. The event triggers a follow-up workflow automatically.
+4. Workflow execution is visible in Motia logs and the Workbench.
+
+## How Motia is Used
+
+Motia is used as the core backend engine.  
+The project leverages:
+
+- API Steps for HTTP endpoints
+- Event-driven workflows
+- Unified runtime for backend logic
+- Built-in observability via the Workbench
+
+This avoids fragmented services and keeps all backend logic in a single workflow system.
+
+## AI Tool Usage
+
+AI tools such as ChatGPT were used to assist with:
+
+- Workflow planning
+- Step handler logic
+- Code structure guidance
+
+AI usage is fully declared as per hackathon rules.
+
+## Running the Project Locally
 
 ```bash
-# Start the development server
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-This starts the Motia runtime and the **Workbench** - a powerful UI for developing and debugging your workflows. By default, it's available at [`http://localhost:3000`](http://localhost:3000).
+This starts the Motia runtime and opens the Workbench at:
+http://localhost:3000
 
-1. **Open the Workbench** in your browser at [`http://localhost:3000`](http://localhost:3000)
-2. **Click the `Tutorial`** button on the top right of the workbench
-3. **Complete the `Tutorial`** to get an understanding of the basics of Motia and using the Workbench
+Demo
 
-## Step Types
+The project is demonstrated via a short video walkthrough showing:
 
-Every Step has a `type` that defines how it triggers:
+Project structure in VS Code
 
-| Type | When it runs | Use case |
-|------|--------------|----------|
-| **`api`** | HTTP request | REST APIs, webhooks |
-| **`event`** | Event emitted | Background jobs, workflows |
-| **`cron`** | Schedule | Cleanup, reports, reminders |
+API execution using Postman or curl
 
-## Development Commands
+Event emission and workflow logs in Motia
 
-```bash
-# Start Workbench and development server
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Hackathon Context
 
-# Start production server (without hot reload)
-npm run start
-# or
-yarn start
-# or
-pnpm start
+This project was built from scratch during the hackathon and is not a repackaged or modified existing project.
+All workflows, logic, and design were created during the event.
 
-# Generate TypeScript types from Step configs
-npm run generate-types
-# or
-yarn generate-types
-# or
-pnpm generate-types
+Author
 
-# Build project for deployment
-npm run build
-# or
-yarn build
-# or
-pnpm build
-```
-
-## Project Structure
-
-```
-steps/              # Your Step definitions (or use src/)
-src/                # Shared services and utilities
-motia.config.ts     # Motia configuration
-```
-
-Steps are auto-discovered from your `steps/` or `src/` directories - no manual registration required.
-
-## Tutorial
-
-This project includes an interactive tutorial that will guide you through:
-- Understanding Steps and their types
-- Creating API endpoints
-- Building event-driven workflows
-- Using state management
-- Observing your flows in the Workbench
-
-## Learn More
-
-- [Documentation](https://motia.dev/docs) - Complete guides and API reference
-- [Quick Start Guide](https://motia.dev/docs/getting-started/quick-start) - Detailed getting started tutorial
-- [Core Concepts](https://motia.dev/docs/concepts/overview) - Learn about Steps and Motia architecture
-- [Discord Community](https://discord.gg/motia) - Get help and connect with other developers
+Payal Kumari
